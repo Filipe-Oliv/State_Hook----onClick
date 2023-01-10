@@ -1,0 +1,628 @@
+import React, { useState } from 'react';
+import './estilo.css';
+
+export default function dadosUsuario() {
+  const [ idade, setIdade ] = useState(0);
+
+  function aniversario() {
+    const novaIdade = idade + 1;
+    setIdade(novaIdade);
+  }
+
+  return(
+    <div>
+      <h3>Idade:</h3>
+      <h1>{ idade }</h1>
+    </div>
+  );
+}
+
+_________________________________________________
+
+import React, { useState } from 'react';
+
+export default function ExibeTecnologia() {
+  const [ tecnologia, setTecnologia ] = useState("JavaScript");
+
+  function trocarTecnologia() {
+    const novaTecnologia = ( tecnologia == 'JavaScript' ) ? 'React' : 'JavaScript';
+    setTecnologia(novaTecnologia);
+  }
+
+  return (
+    <div>
+      <h1>Tecnologia:</h1>
+      <h2>{ tecnologia }</h2>
+
+      <button 
+onClick
+ = { trocarTecnologia } >
+        Trocar tecnologia
+      </button>
+
+    </div>
+  );
+}
+
+_______________________________________________________
+
+import React, { useState } from 'react';
+
+export default function DadosUsuario() {
+  const [ titulo, setTitulo ] = useState("");
+  const [ conteudo, setConteudo ] = useState("");
+
+  function abrirManchete() {
+    setTitulo("Exercícios disponíveis");
+    setConteudo("Os exercícios de React já estão disponíveis na plataforma. Teste seus conhecimentos.");
+  }
+
+  return (
+    <div>
+      <button onClick = { abrirManchete }>
+        Ver Manchete
+      </button>
+
+      <h1>{ titulo }</h1>
+
+      <p>{ conteudo }</p>
+    </div>
+  );
+}
+
+_________________________________________________
+
+import React, { useState } from 'react';
+import './estilo.css';
+
+export default function dadosUsuario() {
+  const [ nome, setNome ] = useState('Fernando');
+
+  return(
+    <div className="conteudo-centralizado">
+      <h3>Nome:</h3>
+      <h1>{ nome }</h1>
+    </div>
+  );
+}
+
+_________________________________________________
+
+import React, { useState } from 'react';
+import './estilo.css';
+
+export default function PaginaInicial() {
+  const [ numeroAleatorio, setNumeroAleatorio ] = useState(1);
+
+  function gerarNumero() {
+    const novoNumero = Math.floor(Math.random() * (100-1) + 1);
+    setNumeroAleatorio(novoNumero);
+  }
+
+  return(
+    <div className="conteudo-centralizado">
+      <h3>Número aleatório:</h3>
+      <h1> { numeroAleatorio } </h1>
+
+      <div className='area-botao'>
+        <label>
+          Click no botão abaixo para gerar um número aleatório:
+        </label>
+
+        <button onClick={gerarNumero}>
+          Gerar número
+        </button>
+      </div>
+    </div>
+  );
+}
+
+_________________________________________________
+
+import React from 'react';
+
+export default function HomePage() {
+  const titulo = "Conhecendo o React";
+
+  return(
+    <h1> {titulo} </h1>
+  );
+}
+
+__________________________________________________
+
+import React, { useState } from 'react';
+
+export default function PaginaInicial() {
+  const [ curso, setCurso ]=  useState("React: Componentes");
+
+  return (
+    <div>
+      <h3>Nome:</h3>
+      <h1> { curso } </h1>
+    </div>
+  );
+}
+
+________________________________________________
+
+"/MensagemDoDia/index.js"
+import React from 'react';
+import './estilo.css';
+
+export default function MensagemDoDia() {
+  function verMensagem() {
+    alert("Quando tudo está errado e confuso, apague tudo e recomece do zero.")
+  }
+
+  return (
+    <div className="box-principal">
+      <h1>Clique para ver a mensagem</h1>
+      <button onClick = { verMensagem } >
+        Ver mensagem
+      </button>
+
+    </div>
+  );
+}
+
+
+"/MensagemDoDia/estilo.css"
+.box-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  padding: 10px 15px;
+  outline: none;
+  cursor: pointer;
+}
+
+_______________________________________________
+
+import React, { useState } from 'react';
+export default function PaginaPrincipal() {
+  const [ mensagem, setMensagem ] = useState("Nenhuma mensagem encontrada");
+
+  return (
+    <h1>{mensagem}</h1>
+  );
+}
+
+______________________________________________
+
+import React, { useState } from 'react';
+import { BarraTopo } from './componentes/Topo/';
+import Conteudo from './componentes/Conteudo/';
+
+export default function PaginaTotalVendas() {
+  const [ titulo, setTitulo ] = useState("Nenhuma venda cadastrada");
+
+  return (
+    <div>
+      <BarraTopo />
+      <h1>{ titulo }</h1>
+      <Conteudo />
+    </div>
+  );
+}
+
+________________________________________________
+
+import React, { useState } from 'react';
+
+export  function GamePage() {
+
+  const [ jogo, setJogo ] = useState("KOF");
+
+  return (
+    <div>
+      <h1>{ jogo }</h1>
+    </div>
+  );
+}
+
+_________________________________________________
+
+import React, { useState } from 'react';
+import ConteudoPostagem from './ConteudoPostagem/';
+
+export default function Postagem() {
+  const [ curtiu, setCurtiu ] = useState(false);
+
+  function verificaclique() {
+    const texto = !curtiu ? "Você curtiu" : "Você não pode curtir de novo";
+    setCurtiu(true);
+    alert(texto);
+  }
+
+  return (
+    <div>
+      <ConteudoPostagem />
+      <p>Clique no botão abaixo para curtir a publicação</p>
+      <button onClick = { verificaclique } >
+        Verificar clique
+      </button>
+    </div>
+  );
+}
+
+___________________________________________________
+
+import React from 'react';
+
+export default function NumeroAleatorio() {
+  function gerarNumero() {
+    const novoNumero = Math.floor(Math.random() * (100-1) + 1);
+    alert(novoNumero);
+  }
+
+  
+return(
+
+    <div className="conteudo-centralizado">
+      <h3>Número aleatório:</h3>
+
+      <div className='area-botao'>
+        <label>
+          Click no botão abaixo para gerar um número aleatório:
+        </label>
+
+        <button onClick= { gerarNumero }>
+          Gerar número
+        </button>
+      </div>
+    </div>
+  );
+}
+
+__________________________________________________
+
+import React, { useState } from 'react';
+import './estilo.css';
+
+export default function PaginaInicial() {
+  const [ nome, setNome ] = useState("Joaquim");
+
+  return (
+    <div>
+      <h3>Nome:</h3>
+      <h1> { nome } </h1>
+    </div>
+  );
+}
+
+___________________________________________________
+
+import React, 
+{ useState }
+ from 'react';
+
+export default function CampoQuantidade() {
+  const [ quantidade, setQuantidade ] = useState(0);
+
+  function adicionar() {
+    setQuantidade(quantidade + 1);
+  }
+
+  function remover() {
+    setQuantidade(quantidade - 1);
+  }
+
+  
+return(
+
+    <div>
+      <h1></h1>
+          <button onClick={adicionar}>+1</button> 
+          <button onClick={remover}>-1</button> 
+    </div>
+  );
+}
+
+____________________________________________________
+
+import React, { useState } from 'react';
+import './estilo.css';
+
+export default function PaginaInicial() {
+  const [ numero, setNumero ] = useState(1);
+
+  return(
+    <div>
+      <h3>Número:</h3>
+      <h1>{ numero }</h1>
+    </div>
+  );
+}
+
+_____________________________________________________
+
+import React from 'react';
+
+ 
+export default function PaginaDeNotificacao() {
+  function notificarUsuario () {
+    const mensagem = 'Atenção!!!';
+    alert(mensagem);
+  }
+
+  return(
+    <div>
+      <button  
+onClick= { notificarUsuario }
+ >
+        Alertar
+      </button>
+    </div>
+  );
+}
+
+_________________________________________________
+
+import React from 'react';
+
+export default function PaginaTermosDeUso() {
+  function aceitarTermos () {
+    alert("Você aceitou os termos de uso");
+  }
+
+  function recusarTermos () {
+    alert("Você precisa aceitar os termos de uso para continuar");
+  }
+  return (
+    <div>
+      <h1>Termos de uso</h1>
+
+      <h3>Deseja aceitar os termos de uso?</h3>
+<button onClick={aceitarTermos}>Sim</button>
+<button onClick={recusarTermos}>Não</button>
+    </div>
+  );
+}
+
+_________________________________________________
+
+import React, { useState } from 'react';
+import Conteudo from '../Conteudo/';
+import './estilo.css';
+
+export default function TemaPage() {
+  const [ tema, setTema ] = useState("A vida de um programador");
+
+  return(
+    <div className='aplicacao'>
+      <h1></h1>
+
+      <Conteudo />
+    </div>
+  );
+}
+
+_______________________________________________
+
+import React, { useState } from 'react';
+
+export default function PaginaInicial() {
+
+  function exibirMensagem() {
+    alert("'onClick' é um evento da tag 'button'");
+  }
+
+  return(
+    <div className="conteudo-centralizado">
+      <button onClick={ exibirMensagem }>
+        Gerar número
+      </button>
+    </div>
+  );
+}
+
+_____________________________________________
+
+import React from 'react';
+import './estilo.css';
+
+export default function PaginaNotificacao() {
+  function alertarUsuario () {
+    alert('Atenção!!!');
+  }
+
+  return(
+    <div>
+      <h1>Clique no botão abaixo</h1>
+      <button onClick = { alertarUsuario } >
+        Alertar
+      </button>
+    </div>
+  );
+}
+
+____________________________________________
+
+import React, { useState } from 'react';
+export default function CampoVoto() {
+  const [ totalVotos, setTotalVotos ] = useState(0);
+
+  function adicionar() {
+    setTotalVotos(totalVotos + 1);
+  }
+
+  function remover() {
+    setTotalVotos(totalVotos - 1);
+  }
+
+  return(
+    <div>
+      <h1></h1>
+      <button onClick = { adicionar } >+</button>
+      <button onClick = { remover } >-</button>
+    </div>
+  );
+}
+
+_____________________________________________
+
+import React, { useState } from 'react';
+
+export default function DadosUsuario() {
+
+  const [ login, setLogin ] = useState("Fulano");
+  const [ senha, setSenha ] = useState("123456");
+
+  return (
+    <div>
+      <h1>Dados do usuário</h1>
+
+      <p>Login padrão: { login } </p>
+      <p>Senha padrão: { senha } </p>
+    </div>
+  );
+
+}
+
+_____________________________________________
+
+import React from 'react';
+import './estilo.css';
+
+export default function PaginaNotificacao() {
+  function alertarUsuario () {
+    const mensagem = 'Atenção!!!';
+    alert(mensagem);
+  }
+
+  return(
+    <div>
+      <button onClick = { alertarUsuario }>
+        Alertar
+      </button>
+    </div>
+  );
+}
+
+_______________________________________________
+
+import React, { useState } from 'react';
+
+export default function ExibeNumero() {
+  const [ total, setTotal ] = useState (0);
+
+  
+function incrementar() {
+    
+setTotal ( total + 1);
+  }
+
+  return (
+    <div>
+      <h1>Valor: { total }</h1>
+
+      <button onClick = { incrementar } >
+        Incrementar 1
+      </button>
+    </div>
+  );
+}
+
+_______________________________________________
+
+import React, { useState } from 'react';
+
+export default function TopoLogin() {
+  
+const [ usuario, setUsuario] = useState("Fernando");
+
+  function deslogar() {
+    setUsuario("deslogado");
+  }
+
+  return (
+    <div>
+      <h1>Usuário: </h1>
+
+      <button onClick = { deslogar } >
+        Deslogar
+      </button>
+    </div>
+  );
+}
+
+__________________________________________________
+
+import React, { useState } from 'react';
+import './ConteudoPostagem.css';
+
+export default function ConteudoPostagem() {
+
+const [ numeroPalmas, setNumeroPalmas ] = useState(0);
+
+  function somarPalmas() {
+    setNumeroPalmas(numeroPalmas + 1);
+  }
+
+  return (
+    <div>
+      <p>Palmas recebidas: { numeroPalmas } </p>
+
+      <button onClick = { somarPalmas } >
+        Bater palmas
+      </button>
+    </div>
+  );
+}
+
+__________________________________________
+
+
+import React, { useState } from 'react';
+
+export default function PaginaInicial() {
+  const 
+[ nomeProduto, setNomeProduto ]
+ = useState("HD SSD 500GB");
+  const 
+[ valor, setValor ]
+ = useState('-');
+
+  function revelarValor() {
+    setNomeProduto(nomeProduto.toUpperCase());
+    setValor("R$ 500,00");
+  }
+
+  return (
+    <div>
+      <h1>Produto: { nomeProduto } </h1>
+      <h3>Valor: { valor } </h3>
+
+      <button onClick = { revelarValor } >
+        Ver total em estoque
+      </button>
+    </div>
+  );
+}
+
+_______________________________________________
+
+import React from 'react';
+
+export default function PaginaDeNotificacao() {
+  function notificarUsuario () {
+       alert("Novos exercícios de React disponíveis");
+  }
+
+  return(
+    <div>
+      
+        <button onClick={notificarUsuario}>
+        Alertar
+        </button>
+    </div>
+  );
+}
+
+______________________________________________
+
